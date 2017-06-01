@@ -1,0 +1,9 @@
+allow sensors adsprpcd:dir search;
+allow sensors adsprpcd:file { open read };
+allow sensors adsprpcd:lnk_file read;
+allow sensors mm-qcamerad:dir search;
+allow sensors mm-qcamerad:file { open read };
+allow sensors mm-qcamerad:lnk_file read;
+allow sensors tee:dir search;
+allow sensors tee:file { open read };
+allow sensors tee:lnk_file read;
