@@ -1,11 +1,11 @@
 telephony.lteOnGsmDevice=0
+telephony.lteOnCdmaDevice=0
 ro.telephony.default_network=3
 
 persist.multisim.config=dsds
 persist.radio.multisim.config=dsds
 persist.radio.dont_use_dsd=true
 ro.telephony.ril.config=simactivation
-telephony.lteOnCdmaDevice=0
 
 ro.sf.lcd_density=240
 ro.panel.mountflip=3
