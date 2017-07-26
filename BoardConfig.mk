@@ -42,3 +42,31 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_SYSTEMIMAGE_PARTITION_SIZE :=   1100000000
 BOARD_CACHEIMAGE_PARTITION_SIZE :=    100000000
 BOARD_PERSISTIMAGE_PARTITION_SIZE  := 33554432
+
+# twrp
+ifneq ($(USE_TWRP),)
+	RECOVERY_VARIANT := twrp
+	BOARD_HAS_FLIPPED_SCREEN := true
+	BOARD_HAS_NO_SELECT_BUTTON := true
+	BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 msm_rtb.filter=0x37 androidboot.hardware=qcom androidboot.selinux=permissive
+	BOARD_SUPPRESS_SECURE_ERASE := true
+	TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+	TW_DEFAULT_EXTERNAL_STORAGE := true
+	TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+	TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+	TW_FLASH_FROM_STORAGE := true
+	TW_INCLUDE_CRYPTO := true
+	TW_INTERNAL_STORAGE_PATH := "/data/media"
+	TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+	TW_NO_REBOOT_BOOTLOADER := true
+	TW_THEME := portrait_mdpi
+	TARGET_RECOVERY_FSTAB := device/lge/w55ds/rootdir/twrp.fstab
+	TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+	TARGET_RECOVERY_QCOM_RTC_FIX := true
+	TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun%d/file"
+	TARGET_USERIMAGES_USE_EXT4 := true
+	TARGET_USERIMAGES_USE_F2FS := true
+
+	# Include parted in twrp
+	TARGET_RECOVERY_DEVICE_MODULES := parted
+endif
