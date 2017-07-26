@@ -58,6 +58,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FlipFlap
 
+ifdef USE_DEV_CERTIFICATE
+	PRODUCT_DEFAULT_DEV_CERTIFICATE := $(USE_DEV_CERTIFICATE)
+endif
+
 # Inherit from msm8226-common
 $(call inherit-product, device/lge/msm8226-common/msm8226.mk)
 $(call inherit-product, vendor/lge/w55ds/w55ds-vendor.mk)
