@@ -18,6 +18,8 @@ $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+GAPPS_VARIANT := micro
+
 # Specific overlay
 DEVICE_PACKAGE_OVERLAYS += device/lge/w55ds/overlay
 
@@ -65,4 +67,6 @@ endif
 # Inherit from msm8226-common
 $(call inherit-product, device/lge/msm8226-common/msm8226.mk)
 $(call inherit-product, vendor/lge/w55ds/w55ds-vendor.mk)
-
+ifneq ($(WITH_GAPPS),)
+	$(call inherit-product, vendor/google/build/opengapps-packages.mk)
+endif
