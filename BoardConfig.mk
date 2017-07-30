@@ -44,11 +44,9 @@ BOARD_CACHEIMAGE_PARTITION_SIZE :=    100000000
 BOARD_PERSISTIMAGE_PARTITION_SIZE  := 33554432
 
 # twrp
-ifneq ($(USE_TWRP),)
-	RECOVERY_VARIANT := twrp
+ifneq ($(WITH_TWRP),)
 	BOARD_HAS_FLIPPED_SCREEN := true
 	BOARD_HAS_NO_SELECT_BUTTON := true
-	BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 msm_rtb.filter=0x37 androidboot.hardware=qcom androidboot.selinux=permissive
 	BOARD_SUPPRESS_SECURE_ERASE := true
 	TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 	TW_DEFAULT_EXTERNAL_STORAGE := true
@@ -69,4 +67,5 @@ ifneq ($(USE_TWRP),)
 
 	# Include parted in twrp
 	TARGET_RECOVERY_DEVICE_MODULES := parted
+	RELINK_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/parted
 endif
