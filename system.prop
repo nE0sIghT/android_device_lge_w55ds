@@ -7,7 +7,7 @@ persist.radio.multisim.config=dsds
 persist.radio.dont_use_dsd=true
 ro.telephony.ril.config=simactivation
 
-ro.sf.lcd_density=240
+ro.sf.lcd_density=217
 ro.panel.mountflip=3
 
 ro.qualcomm.sensors.qmd=false
